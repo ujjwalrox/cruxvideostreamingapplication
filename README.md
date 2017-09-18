@@ -2,6 +2,7 @@
 A project in NodeJS for streaming videos
 
 Run the below commands
+
 $ npm install --> Will install all dependencies sepcified in package.json file
 
 $ nodemon app.js --> Will start server on port 3000 by default
