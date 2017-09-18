@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head><title>Hello world</title></head>
+  <script src="/socket.io/socket.io.js"></script>
+  <script>
+	function connectToServer()
+{
+	var ip = document.getElementById("ip").value;
+	var port = document.getElementById("port").value;
+	alert(ip + ':' + port);
+	var socket = io.connect('http://'+ip+':'+port, {reconnect: true});
+	socket.emit('CH01', 'saradhi', 'Hi there');
+}
+    
+  </script>
+  <body>
+	<table>
+		<tr>
+			<td>
+				<input type="text" id="ip">
+				<input type="text" id="port">
+			</td>
+			<td>
+				<button type="submit" onclick="connectToServer()">Submit</button>
+			</td>
+		</tr>
+	</table>
+</body>
+</html>
