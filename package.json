@@ -21,6 +21,8 @@
   "homepage": "https://github.com/ramakrishna1994/cruxvideostreamingapplication#readme",
   "dependencies": {
     "express": "^4.15.4",
-    "socket.io": "^2.0.3"
+    "nodemon": "^1.12.1",
+    "socket.io": "^2.0.3",
+    "socket.io-client": "^2.0.3"
   }
 }
