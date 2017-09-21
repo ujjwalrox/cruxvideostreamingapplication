@@ -1,15 +1,29 @@
 <!DOCTYPE html>
 <html>
-  <head><title>Hello world</title></head>
-  <script src="/socket.io/socket.io.js"></script>
+	<head><title>Hello world</title></head>
+	<script src="/socket.io/socket.io.js"></script>
   <script>
 	function connectToServer()
 {
 	var ip = document.getElementById("ip").value;
 	var port = document.getElementById("port").value;
-	alert(ip + ':' + port);
+	if(ip == '')
+	{
+		alert('please enter ip');
+		return;
+	}
+	if(port == '')
+	{
+		alert('please enter port');
+		return;
+	}
+	//alert(ip + ':' + port);
 	var socket = io.connect('http://'+ip+':'+port, {reconnect: true});
-	socket.emit('CH01', 'saradhi', 'Hi there');
+	socket.emit('CH01', 'Client', 'Connected');
+	socket.on('videolink', function(link){
+		//alert(link);
+		window.location = 'http://'+ip+':'+port+'/'+link;
+  });
 }
     
   </script>
@@ -17,11 +31,16 @@
 	<table>
 		<tr>
 			<td>
-				<input type="text" id="ip">
-				<input type="text" id="port">
+				Enter IP Address : <input type="text" id="ip"><br><br>
+				Enter Port &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
+				 <input type="text" id="port"><br><br>
+				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				 <button type="submit" onclick="connectToServer()">Submit</button>
 			</td>
 			<td>
-				<button type="submit" onclick="connectToServer()">Submit</button>
+				
 			</td>
 		</tr>
 	</table>

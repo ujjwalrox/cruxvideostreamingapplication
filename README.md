@@ -5,7 +5,7 @@ Run the below commands
 
 $ npm install --> Will install all dependencies sepcified in package.json file
 
-$ nodemon app.js --> Will start server on port 3000 by default
+$ nodemon server.js --> Will start server on port 8000 by default
 
 Instead of node we are using nodemon as we don't need to restart server everytime we do changes.
 
