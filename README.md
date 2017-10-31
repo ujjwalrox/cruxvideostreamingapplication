@@ -1,5 +1,13 @@
-# cruxvideostreamingapplication
+# cruxvideostreamingapplication #
+
+
 A project in NodeJS for streaming videos
+
+#Working#
+A new client is connected to the server using WebSockets , A Random generated link is sent to the client , and the client is 
+redirected to that link , now the video is piped to that link .
+
+#Setting up Environment#
 
 Run the below commands
 
