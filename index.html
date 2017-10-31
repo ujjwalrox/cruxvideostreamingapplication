@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
-	<head><title>Hello world</title></head>
+	<head><title>Video Streaming Using NodeJS</title></head>
 	<script src="/socket.io/socket.io.js"></script>
   <script>
 	function connectToServer()
 {
 	var ip = document.getElementById("ip").value;
 	var port = document.getElementById("port").value;
+	
+	//Checking empty Text Feilds
 	if(ip == '')
 	{
 		alert('please enter ip');
@@ -17,11 +19,11 @@
 		alert('please enter port');
 		return;
 	}
-	//alert(ip + ':' + port);
+	
 	var socket = io.connect('http://'+ip+':'+port, {reconnect: true});
 	socket.emit('CH01', 'Client', 'Connected');
 	socket.on('videolink', function(link){
-		//alert(link);
+		//Redirecting
 		window.location = 'http://'+ip+':'+port+'/'+link;
   });
 }
@@ -34,9 +36,14 @@
 				Enter IP Address : <input type="text" id="ip"><br><br>
 				Enter Port &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;:
 				 <input type="text" id="port"><br><br>
+				
+				
+				//spaces
 				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				//spaces end
+				
 				 <button type="submit" onclick="connectToServer()">Submit</button>
 			</td>
 			<td>
